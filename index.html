@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ShadowBypass: XSS Reflection Test</title>
+</head>
+<body>
+    <h1>ShadowBypass: Test Reflection Page</h1>
+    <form method="GET">
+        <input type="text" name="query" placeholder="Enter payload...">
+        <input type="submit" value="Submit">
+    </form>
+
+    <h3>Result:</h3>
+    <div>
+        <script>
+            const input = new URLSearchParams(window.location.search).get("query");
+            if (input) {
+                document.write("Output: " + input);
+            }
+        </script>
+    </div>
+</body>
+</html>
