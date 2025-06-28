@@ -6,6 +6,7 @@
 </head>
 <body>
     <h1>ShadowBypass: Test Reflection Page</h1>
+
     <form method="GET">
         <input type="text" name="query" placeholder="Enter payload...">
         <input type="submit" value="Submit">
@@ -16,7 +17,8 @@
         <script>
             const input = new URLSearchParams(window.location.search).get("query");
             if (input) {
-                document.write("Output: " + input);
+                const decoded = decodeURIComponent(input); // Decode the payload
+                document.write("Output: " + decoded); // Reflect it (and allow execution)
             }
         </script>
     </div>
